@@ -1,0 +1,21 @@
+# Automatically create pull requests to update dependencies in our repositories.
+
+version: 2
+updates:
+  # Automatically update dependencies for all package managers
+  - package-ecosystem: "npm"  # For JavaScript and Node.js projects
+    directory: "/"              # Location of the package.json file
+    schedule:
+      interval: "weekly"        # Check for updates every week
+  - package-ecosystem: "python"  # For Python projects
+    directory: "/"               # Location of the requirements.txt file
+    schedule:
+      interval: "weekly"         # Check for updates every week
+  - package-ecosystem: "docker"  # For Docker images
+    directory: "/"               # Location of the Dockerfile
+    schedule:
+      interval: "weekly"         # Check for updates every week
+  - package-ecosystem: "github-actions" # For GitHub Actions workflows
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"         # Check for updates every week
